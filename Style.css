@@ -1,0 +1,168 @@
+/* Gaming Style Example */
+body {
+    /* Reality Gaming Neon Grid Background */
+    background: #0f1021;
+    min-height: 100vh;
+    font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+body::after {
+    /* Vignette effect for immersive look */
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: 2;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0) 60%, rgba(15,16,33,0.85) 100%);
+}
+
+.particles {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes neon-pulse {
+    0%, 100% { opacity: 0.7; filter: blur(2px); }
+    50% { opacity: 1; filter: blur(6px); }
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+    background:
+        repeating-linear-gradient(0deg, rgba(0,255,255,0.08) 0px, rgba(0,255,255,0.08) 2px, transparent 2px, transparent 40px),
+        repeating-linear-gradient(90deg, rgba(15,52,96,0.08) 0px, rgba(15,52,96,0.08) 2px, transparent 2px, transparent 40px);
+    animation: gridMove 8s linear infinite;
+}
+
+@keyframes gridMove {
+    0% { background-position: 0 0, 0 0; }
+    100% { background-position: 40px 40px, 40px 40px; }
+}
+
+.container {
+    background: rgba(30, 30, 60, 0.98);
+    border-radius: 18px;
+    box-shadow: 0 0 40px #0ff, 0 0 80px #0f3460 inset, 0 0 120px #22223b;
+    padding: 40px 36px;
+    width: 370px;
+    border: 2px solid #0ff;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+.container::after {
+    content: "";
+    position: absolute;
+    top: -30px; left: -30px; right: -30px; bottom: -30px;
+    border-radius: 24px;
+    pointer-events: none;
+    box-shadow: 0 0 60px 10px #0ff, 0 0 120px 30px #0f3460 inset;
+    opacity: 0.25;
+    z-index: 0;
+}
+
+h2 {
+    font-family: 'Orbitron', Arial, sans-serif;
+    text-align: center;
+    color: #0ff;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    text-shadow: 0 0 12px #0ff, 0 0 24px #0f3460;
+}
+
+label {
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 0 0 6px #0f3460;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    background: #22223b;
+    color: #fff;
+    border: 2px solid #0ff;
+    border-radius: 8px;
+    padding: 14px;
+    margin-bottom: 20px;
+    font-size: 1.08rem;
+    transition: border 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 10px #0f3460 inset;
+}
+
+input:focus {
+    border-color: #0ff;
+    outline: none;
+    box-shadow: 0 0 16px #0ff, 0 0 8px #0f3460 inset;
+}
+
+.button-group {
+    display: flex;
+    gap: 12px;
+}
+
+.button-group button {
+    width: auto;
+    min-width: 110px;
+    padding: 14px 28px;
+    font-size: 1.08rem;
+    font-family: 'Orbitron', Arial, sans-serif;
+    background: linear-gradient(90deg, #0ff 0%, #0f3460 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 12px #0ff, 0 0 8px #0f3460 inset;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    z-index: 1;
+}
+
+.button-group button:hover {
+    background: linear-gradient(90deg, #0f3460 0%, #0ff 100%);
+    transform: scale(1.08);
+    box-shadow: 0 0 24px #0ff, 0 0 16px #0f3460 inset;
+}
+
+.cancelbtn {
+    background: linear-gradient(90deg, #f44336 0%, #0ff 100%);
+}
+
+.cancelbtn:hover {
+    background: linear-gradient(90deg, #0ff 0%, #f44336 100%);
+}
+
+span.psw a {
+    color: #0ff;
+    text-decoration: underline;
+    font-weight: bold;
+    text-shadow: 0 0 1px #0ff;
+}
+
+span.reg a {
+    color: #0ff;
+    text-decoration: underline;
+    font-weight: bold;
+    text-shadow: 0 0 1px #0ff;
+}
+
+.fade-in {
+    animation: fadeIn 0.7s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
